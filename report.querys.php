@@ -72,6 +72,7 @@
 					user2.username AS Usernamse,
 					user2.firstname AS Firstname,
 					user2.lastname AS Lastname,
+					user2.lastaccess AS lastaccess,
 					user2.email AS Email,
 					user2.city AS City,
 					course.fullname AS Course

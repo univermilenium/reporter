@@ -81,6 +81,7 @@
 					$user->Lastname 	= $row['Lastname'];
 					$user->ROLE 		= $row['ROLE'];
 					$user->grupo 		= $row['grupo'];
+					$user->lastaccess	= $row['lastaccess'];
 
 					foreach($this->activities  as $activity)
 					{
