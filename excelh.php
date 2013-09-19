@@ -60,7 +60,7 @@
                     <td><strong>Email</strong></td>
                     <td><strong>Rol</strong></td>
                     <td><strong>Grupo</strong></td>
-                    <td><strong>Último acceso</strong></td>
+                    <td><strong>&Uacute;ltimo acceso</strong></td>
                     <?php foreach($report->activities as $activity):?>
 						<td><strong><?php echo $activity->name; ?></strong></td>
                 	<?php endforeach;?>
@@ -79,7 +79,7 @@
                         <td><?php echo $row->Email;?></td>
                         <td><?php echo $row->ROLE;?></td>
                         <td><?php echo $row->grupo;?></td>
-                        <td><?php echo $row->lastaccess;?></td>
+                        <td><?php if($row->lastaccess==0) echo "Nunca"; else echo date("d/m/Y H:i",$row->lastaccess);?></td>
 
 	                  	<?php foreach($report->activities as $activity):?>
 							<td>
