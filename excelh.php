@@ -79,7 +79,7 @@
                         <td><?php echo $row->Email;?></td>
                         <td><?php echo $row->ROLE;?></td>
                         <td><?php echo $row->grupo;?></td>
-                        <td><?php if($row->lastaccess==0) echo "Nunca"; else echo date("d/m/Y H:i",$row->lastaccess);?></td>
+                        <td><?php echo $row->lastaccess;?></td>
 
 	                  	<?php foreach($report->activities as $activity):?>
 							<td>
