@@ -50,7 +50,7 @@
 		{
 			return "
 
-				SELECT DISTINCT c.fullname,u.username, u.firstname, u.lastname, g.name
+				SELECT DISTINCT c.fullname,u.username, u.firstname, u.lastname, g.name, u.id as userid
 				FROM ".$prefix."course c
 				JOIN ".$prefix."context ct ON c.id = ct.instanceid
 				JOIN ".$prefix."role_assignments ra ON ra.contextid = ct.id
@@ -59,7 +59,7 @@
 				JOIN ".$prefix."groups g ON g.courseid = c.id
 				JOIN ".$prefix."groups_members m ON m.groupid = g.id
 
-				WHERE (r.shortname = 'teacher' or r.shortname = 'editingteacher') AND c.id = :courseid AND g.id = :groupid
+				WHERE (r.shortname = 'non-editingteacher') AND c.id = :courseid AND g.id = :groupid
 
 			";
 		}
@@ -92,5 +92,19 @@
 				";
 
 				return $qry;
-		}  	
+		} 
+
+		static public function getLogQry($prefix = "mdl_")
+		{
+
+			$qry = 
+			"
+				SELECT module, action, url, ip, course
+				FROM ".$prefix."log 
+				WHERE userid = :userid AND course = :courseid
+
+			";
+
+			return $qry;
+		} 	
   }

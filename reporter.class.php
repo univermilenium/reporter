@@ -52,6 +52,25 @@
 			return $rows;
 		}
 
+		public function getLogs($userid, $courseid, $json = false)
+		{
+			$qry = Querys::getLogQry($this->settings['prefix']);
+			$this->params = array
+			(
+				'userid'   => $userid,
+				'courseid' => $courseid
+			);	
+
+			$rows = $this->getRows($qry);
+			if($json)
+			{
+				return json_encode($rows);
+			}
+
+			return $rows;
+
+		}
+
 		public function getReport($courseid = 0, $plantel = '0', $groupid = 0, $json = false)
 		{
 			$qry          = Querys::getQueryData($this->settings['prefix']);			
@@ -95,6 +114,6 @@
 
 		private function getSettings()
 		{
-			$this->settings = parse_ini_file($this->settings_file);					
+			$this->settings = parse_ini_file($this->settings_file);
 		}
 	}
