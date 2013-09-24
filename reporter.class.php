@@ -34,11 +34,19 @@
 
 		public function getTeacher($courseid, $groupid, $json = false)
 		{
-			$rows = $this->getRows(Querys::getTeacherQuery($this->settings['prefix']), array('courseid' => $courseid, 'groupid' => $groupid));
+			$qry = Querys::getTeacherQuery($this->settings['prefix']);
+			$this->params = array
+			(
+				'groupid'   => $groupid,
+				'courseid'  => $courseid
+			);
+
+			$rows = $this->getRows($qry);
 			if($json)
 			{
-				$rows = json_encode($rows);
+				return json_encode($rows);
 			}
+
 			return $rows;
 		}
 

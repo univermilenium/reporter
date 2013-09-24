@@ -60,7 +60,7 @@
 				JOIN ".$prefix."groups_members m ON m.groupid = g.id
 
 				WHERE (r.shortname = 'non-editingteacher') AND c.id = :courseid AND g.id = :groupid
-
+				
 			";
 		}
 
