@@ -50,6 +50,19 @@
 			return $rows;
 		}
 
+		public function getAllTeachers($json = false)
+		{
+			$qry = Querys::getAllTeachersQuery($this->settings['prefix']);
+
+			$rows = $this->getRows($qry);
+			if($json)
+			{
+				return json_encode($rows);
+			}
+
+			return $rows;
+		}
+
 		public function getGroups($courseid, $json = false)
 		{
 			$rows =  $this->getRows(Querys::getGroupsQuery(), array('courseid' => $courseid));

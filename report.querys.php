@@ -64,6 +64,24 @@
 			";
 		}
 
+		static public function getAllTeachersQuery($prefix = "mdl_")
+		{
+			return "
+
+				SELECT DISTINCT c.fullname,u.username, u.firstname, u.lastname, g.name, u.id as userid
+				FROM ".$prefix."course c
+				JOIN ".$prefix."context ct ON c.id = ct.instanceid
+				JOIN ".$prefix."role_assignments ra ON ra.contextid = ct.id
+				JOIN ".$prefix."user u ON u.id = ra.userid
+				JOIN ".$prefix."role r ON r.id = ra.roleid
+				JOIN ".$prefix."groups g ON g.courseid = c.id
+				JOIN ".$prefix."groups_members m ON m.groupid = g.id
+
+				WHERE (r.shortname = 'non-editingteacher') group by u.username, g.name
+				
+			";
+		}
+
 		static public function getQueryData($prefix = "mdl_")
 		{
 			$qry="
