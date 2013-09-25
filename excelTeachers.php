@@ -17,18 +17,16 @@
         <th>Apellidos</th>
         <th>Grupo</th>
     </tr>
-    <tr>
             	<?php foreach ($TEACHERS as $teacher): ?>
-	                
+	                <tr>
                     <td><?php echo $teacher['username'];?></td>
 	                <td><?php echo $teacher['firstname'];?></td>
 	                <td><?php echo $teacher['lastname'];?></td>
                     <td><?php echo $teacher['name'];?></td>
-	                            	
+	                </tr>            	
             	<?php endforeach; ?>
-    </tr>    
     <tr>
         <td><strong>Fecha:</strong></td>
-        <td colsapan="3"><span id="fecha_txt"><?php echo $date = date('d-m-Y');?></span></td>
+        <td colspan="3"><span id="fecha_txt"><?php echo $date = date('d-m-Y');?></span></td>
     </tr>                
   </table>
