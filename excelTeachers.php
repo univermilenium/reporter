@@ -17,6 +17,7 @@
         <th>Apellidos</th>
         <th>Grupo</th>
     </tr>
+    <tr>
             	<?php foreach ($TEACHERS as $teacher): ?>
 	                
                     <td><?php echo $teacher['username'];?></td>
