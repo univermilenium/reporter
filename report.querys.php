@@ -117,10 +117,9 @@
 
 			$qry = 
 			"
-				SELECT module, action, url, ip, course
-				FROM ".$prefix."log 
-				WHERE userid = :userid AND course = :courseid
-
+				SELECT b.username, b.firstname, b.lastname, c.shortname, a.module, a.action, a.url, a.ip 
+				FROM ".$prefix."log a, ".$prefix."user b, ".$prefix."course c  
+				WHERE a.userid = b.id AND a.course = c.id AND a.userid =  :userid AND a.course = :courseid;
 			";
 
 			return $qry;
