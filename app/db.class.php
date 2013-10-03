@@ -45,9 +45,9 @@
   	{
   		try
   		{  			
-        $to  = ($params == null) ? $this->flatParams() : $params;
+        //$to  = ($params == null) ? $this->flatParams() : $params;
         $sql = $this->conn->prepare($query);	
-        $sql->execute($to); 
+        $sql->execute($this->params); 
         return $sql->fetchAll();
 
   		}catch(PDOException $e)

@@ -16,7 +16,7 @@
     <!-- Basic Page Needs
   ================================================== -->
     <meta charset="utf-8">
-    <title>Moodle Reports</title>
+    <title>Univer Milenium E-Learning Reportes</title>
     <meta name="description" content="">
     <meta name="author" content="MDA-Solutions | Moisés Rangel">
 
@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="stylesheets/base.css">
     <link rel="stylesheet" href="stylesheets/skeleton.css">
     <link rel="stylesheet" href="stylesheets/layout.css">
+    <link rel="stylesheet" href="stylesheets/univer.css">
 
     <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -69,9 +70,14 @@
     ================================================== -->
     <div class="container">
         <div class="sixteen columns">
+<<<<<<< HEAD
             <h1 class="remove-bottom" style="margin-top: 40px">Reportes</h1>
             <h5>Version 0.1</h5>
              <a href="index.php?logout">Logout</a>
+=======
+            <p style="margin-top: 40px"><img src="app/images/logo.png" width="361" height="79"> </p>
+            <h1 class="Subtitle">Reportes</h1>
+>>>>>>> 402ba216d3af3d89e05c89b4a28193c704b6f27f
             <hr />
         </div>
         <div class="one-third column">
