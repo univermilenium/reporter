@@ -14,7 +14,7 @@
             break;
 
         case 'groups':
-            echo $report->getGroups($plantel, true);
+            echo $report->getGroups($courseid, $plantel, true);
             break;            
 
         case 'report':
