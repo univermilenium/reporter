@@ -74,7 +74,7 @@
 <p  style="margin-top: 40px; float:left;"><img src="images/logo.png" width="361" height="79"> <span class="Subtitle">&nbsp;&nbsp;&nbsp;&nbsp;Reportes</span> </p>
 
 <div style="clear:both;"></div>
-   <a  href="index.php?logout">Logout</a>
+   <a  href="index.php?logout">Salir</a>
 
 
             <hr />
@@ -94,16 +94,16 @@
         </div> 
         
         <div class="sixteen columns">            
-            <a href="#" class="full-width button" id="generator" data-bind="click: updateResume">Mostrar Actividades</a>
+            <a href="#" class="full-width button" id="generator" data-bind="click: updateResume">Mostrar Resumen del Grupo</a>
         </div> 
 
   <div class="sixteen columns clearfix" id="resume" style="display:none;">
     <div class="thirteen columns alpha">
   <table style="width: 100%; margin-bottom: 25px;" id="resume_table">
-    <tr>
+    <!--tr>
         <td width="15%"><strong>Plantel:</strong></td>
         <td><span id="plantel_txt"></span></td>
-    </tr>
+    </tr-->
     <tr>
         <td><strong>Asignatura:</strong></td>
         <td><span id="asignatura_txt"></span></td>

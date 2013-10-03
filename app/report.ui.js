@@ -47,7 +47,7 @@
             var courseid    = $('#courseid').val();
             var plantel     = $('#plantel').val();
             var groupid     = $('#groupid').val();
-            var planteltxt  = $('#plantel_txt').text();
+            //var planteltxt  = $('#plantel_txt').text();
             var cursotxt    = $('#asignatura_txt').text();
             var grupotxt    = $('#grupo_txt').text();;
 
@@ -59,10 +59,15 @@
         {          
             var  courseid = $('#courseid').val();
             var  plantel  = $('#plantel').val();
-            var  groupid  = $('#groupid').val();   
+            var  groupid  = $('#groupid').val();  
+
+            if(groupid == null || groupid == 0)
+            {
+                return;
+            }
 
             var plantel_display = (plantel > 0) ? $('#plantel').find(":selected").text() : 'Todos' ;
-            $('#plantel_txt').text(plantel_display);
+            //$('#plantel_txt').text(plantel_display);
 
             var curso_display = (courseid > 0) ? $('#courseid').find(":selected").text() : 'Todos' ;
             $('#asignatura_txt').text(curso_display);     
@@ -137,7 +142,7 @@
                 var mappedGroups = $.map(data, function(group) { return new Group(group)});
                 if(mappedGroups.length > 0)
                 {     
-                    var blank = new Group({id:0, name: '- Todos -'});
+                    var blank = new Group({id:0, name: '- Seleccione -'});
                     self.groups.push(blank);
 
                     $.each(mappedGroups, function(key, value)
