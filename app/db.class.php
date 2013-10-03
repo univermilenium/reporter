@@ -47,6 +47,7 @@
   		{  			
         $to  = ($params == null) ? $this->flatParams() : $params;
         $sql = $this->conn->prepare($query);	
+
         $sql->execute($to); 
         return $sql->fetchAll();
 

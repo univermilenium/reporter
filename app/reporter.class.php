@@ -83,7 +83,7 @@
 										  ':courseid' => $courseid, 
 										  ':plantel' => "%".$plantel."%"
 										));			
-			
+
 			if($json)
 			{
 				$rows = json_encode($rows);

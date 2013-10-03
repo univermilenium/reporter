@@ -10,7 +10,7 @@
     $groupid  = (!isset($_GET['groupid'])) ? 0   : (int)$_GET['groupid'];
     $plantel  = (!isset($_GET['plantel'])) ?  0  : $_GET['plantel'];
     $asigna   = $_SESSION['plantel_asignaturas'];
- 
+    
     switch ($action)
     {            
         case 'courses':
