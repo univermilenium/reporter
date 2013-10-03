@@ -16,6 +16,7 @@
         <th>Nombre</th>
         <th>Apellidos</th>
         <th>Grupo</th>
+        <th>Rol</th>
     </tr>
             	<?php foreach ($TEACHERS as $teacher): ?>
 	                <tr>
@@ -23,6 +24,7 @@
 	                <td><?php echo $teacher['firstname'];?></td>
 	                <td><?php echo $teacher['lastname'];?></td>
                     <td><?php echo $teacher['name'];?></td>
+                    <td><?php echo $teacher['shortname'];?></td>
 	                </tr>            	
             	<?php endforeach; ?>
     <tr>

@@ -48,7 +48,7 @@
 
 		static public function getTeacherQuery($prefix = "mdl_")
 		{
-			return "
+/**			return "
 
 				SELECT DISTINCT c.fullname,u.username, u.firstname, u.lastname, g.name, u.id as userid
 				FROM ".$prefix."course c
@@ -61,6 +61,23 @@
 
 				WHERE (r.shortname = 'non-editingteacher') AND c.id = :courseid AND g.id = :groupid
 				
+			"; **/
+			return "
+
+				SELECT DISTINCT c.fullname,u.username, u.firstname, u.lastname, g.name, u.id as userid
+				FROM ".$prefix."user u,
+					".$prefix."groups g,
+					".$prefix."groups_members ga,
+					".$prefix."role r, 
+					".$prefix."role_assignments ra
+				WHERE u.id = ga.userid
+					AND g.id = ga.groupid
+					AND ra.userid = u.id
+					AND r.id = ra.roleid
+					AND (r.shortname = 'non-editingteacher')
+					AND g.id = :groupid
+					AND u.suspended = 0
+				
 			";
 		}
 
@@ -68,16 +85,19 @@
 		{
 			return "
 
-				SELECT DISTINCT c.fullname,u.username, u.firstname, u.lastname, g.name, u.id as userid
-				FROM ".$prefix."course c
-				JOIN ".$prefix."context ct ON c.id = ct.instanceid
-				JOIN ".$prefix."role_assignments ra ON ra.contextid = ct.id
-				JOIN ".$prefix."user u ON u.id = ra.userid
-				JOIN ".$prefix."role r ON r.id = ra.roleid
-				JOIN ".$prefix."groups g ON g.courseid = c.id
-				JOIN ".$prefix."groups_members m ON m.groupid = g.id
-
-				WHERE (r.shortname = 'non-editingteacher') group by u.username, g.name
+				SELECT DISTINCT u.username, u.firstname, u.lastname, g.name, r.shortname
+				FROM ".$prefix."user u,
+					".$prefix."groups g,
+					".$prefix."groups_members ga,
+					".$prefix."role r, 
+					".$prefix."role_assignments ra
+				WHERE u.id = ga.userid
+					AND g.id = ga.groupid
+					AND ra.userid = u.id
+					AND r.id = ra.roleid
+					AND u.suspended = 0
+				GROUP BY g.name, u.username
+				ORDER BY g.name, u.username
 				
 			";
 		}
