@@ -67,8 +67,8 @@
     ================================================== -->
     <div class="container">
         <div class="sixteen columns">
-            <p style="margin-top: 40px"><img src="app/images/logo.png" width="361" height="79"> </p>
-            <h1 class="Subtitle">Reportes</h1>
+            <p style="margin-top: 40px; float:left;"><img src="app/images/logo.png" width="361" height="79"> <span class="Subtitle">&nbsp;&nbsp;&nbsp;&nbsp;Reportes</span> </p>
+            
             <hr />
         </div>
         
