@@ -45,6 +45,7 @@
 			{
 				return json_encode($rows);
 			}
+			
 
 			return $rows;
 		}

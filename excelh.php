@@ -4,7 +4,7 @@
 
     $courseid = (!isset($_GET['courseid'])) ? 0  : (int)$_GET['courseid'];
     $groupid  = (!isset($_GET['groupid'])) ?  0   : (int)$_GET['groupid'];
-    $plantel  = (!isset($_GET['plantel'])) ?  0  : (int)$_GET['plantel'];	
+    $plantel  = (!isset($_GET['plantel'])) ?  0  : (int)$_GET['plantel'];
 
     $planteltxt = (!isset($_GET['planteltxt'])) ?  'todos'  : $_GET['planteltxt'];	
     $cursotxt = (!isset($_GET['cursotxt'])) ?  'todos'  : $_GET['cursotxt'];	
@@ -23,7 +23,7 @@
  <table style="width: 100%; margin-bottom: 25px;" id="resume_table">
     <tr>
         <td width="15%"><strong>Plantel:</strong></td>
-        <td><span id="plantel_txt"><?php echo $planteltxt;?></span></td>
+        <td><span id="plantel_txt"><?php echo utf8_decode($planteltxt);?></span></td>
     </tr>
     <tr>
         <td><strong>Asignatura:</strong></td>
@@ -40,10 +40,10 @@
 	                
 	                     <span><?php echo $teacher['firstname'];?></span>
 	                     <span><?php echo $teacher['lastname'];?></span>
-	                    (<span><?php echo $teacher['username'];?></span>),
+	                    (<span><?php echo $teacher['username'];?></span>)
 	                            	
             	<?php endforeach; ?>
-            </ul>
+           
         </td>
     </tr>    
     <tr>
