@@ -100,7 +100,7 @@ class Login
                 // escape the POST stuff
                 $this->user_name = $this->db_connection->real_escape_string($_POST['user_name']);
                 // database query, getting all the info of the selected user
-                $checklogin = $this->db_connection->query("SELECT user_name, user_email, user_password_hash FROM users WHERE user_name = '" . $this->user_name . "';");
+                $checklogin = $this->db_connection->query("SELECT user_name, user_email, user_password_hash, nombre, apellidos, tipo, plantel FROM users WHERE user_name = '" . $this->user_name . "';");
 
                 // if this user exists
                 if ($checklogin->num_rows == 1) {
@@ -112,8 +112,13 @@ class Login
                     if (password_verify($_POST['user_password'], $result_row->user_password_hash)) {
 
                         // write user data into PHP SESSION [a file on your server]
-                        $_SESSION['user_name'] = $result_row->user_name;
+                        $_SESSION['user_name']  = $result_row->user_name;
                         $_SESSION['user_email'] = $result_row->user_email;
+                        $_SESSION['nombre']     = $result_row->nombre;
+                        $_SESSION['apellidos']  = $result_row->apellidos;
+                        $_SESSION['tipo']       = $result_row->tipo;
+                        $_SESSION['plantel']    = $result_row->plantel;
+
                         $_SESSION['user_logged_in'] = 1;
 
                         // set the login status to true
@@ -129,9 +134,9 @@ class Login
                 $this->errors[] = "No se puede conectar a la BD.";
             }
         } elseif (empty($_POST['user_name'])) {
-            $this->errors[] = "Username field was empty.";
+            $this->errors[] = "Campo Usuario vacio.";
         } elseif (empty($_POST['user_password'])) {
-            $this->errors[] = "Password field was empty.";
+            $this->errors[] = "Campo Contraseña vacio.";
         }
     }
 
