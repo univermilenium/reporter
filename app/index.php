@@ -71,6 +71,7 @@
         <div class="sixteen columns">
             <h1 class="remove-bottom" style="margin-top: 40px">Reportes</h1>
             <h5>Version 0.1</h5>
+             <a href="index.php?logout">Logout</a>
             <hr />
         </div>
         <div class="one-third column">
