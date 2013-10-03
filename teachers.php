@@ -24,7 +24,7 @@
             return $allrows;
     	}
     }
-
+    ini_set("memory_limit","1200M");
     $teacher = new Teacher();
     $rows    = $teacher->getActivityReport();
 
