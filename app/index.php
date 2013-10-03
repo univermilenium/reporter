@@ -94,7 +94,7 @@
         </div> 
         
         <div class="sixteen columns">            
-            <a href="#" class="full-width button" id="generator" data-bind="click: getRows">Mostrar Actividades</a>
+            <a href="#" class="full-width button" id="generator" data-bind="click: updateResume">Mostrar Actividades</a>
         </div> 
 
   <div class="sixteen columns clearfix" id="resume" style="display:none;">
@@ -133,41 +133,13 @@
     </div>
     <div class="three columns omega"><a href="#" class="button" id="download" data-bind="click: getExcel">Descargar Excel</a></div>
   </div>    
-
-        <div class="sixteen columns">            
-            <table class="grid" id="report_table">
-                <tr>
-                    <td><strong>Matricula</strong></td>
-                    <td><strong>Nombre</strong></td>
-                    <td><strong>Apellidos</strong></td>
-                    <td><strong>Email</strong></td>
-                    <td><strong>Rol</strong></td>
-                    <td><strong>Grupo</strong></td>
-                    <td><strong>Actividad</strong></td>                    
-                    <td><strong>Calificación</strong></td>
-                    <td><strong>Estatus</strong></td>
-                </tr>
-                <tbody data-bind="foreach: students">                
-                    <tr>
-                        <td data-bind="text: Username"></td>
-                        <td data-bind="text: Firstname"></td>
-                        <td data-bind="text: Lastname"></td>
-                        <td data-bind="text: Email"></td>
-                        <td data-bind="text: ROLE"></td>
-                        <td data-bind="text: grupo"></td>
-                        <td data-bind="text: actividad"></td>                        
-                        <td data-bind="text: grade"></td>
-                        <td data-bind="text: status"></td>
-                    </tr>
-                <tbody>
-            </table>
-        </div>                
+         
 
     </div><!-- container -->
 
 
 <!-- End Document
 ================================================== -->
-<script type="text/javascript" src="report.ui.min.js"></script>
+<script type="text/javascript" src="report.ui.js"></script>
 </body>
 </html>

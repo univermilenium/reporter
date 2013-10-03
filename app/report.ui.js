@@ -132,7 +132,7 @@
         {
             self.groups.removeAll();
             
-            $.getJSON('report.php?action=groups&courseid=' + $('#courseid').val(), function(data)
+            $.getJSON('report.php?action=groups&courseid=' + $('#courseid').val() + '&plantel='+$('#plantel').val(), function(data)
             {
                 var mappedGroups = $.map(data, function(group) { return new Group(group)});
                 if(mappedGroups.length > 0)
