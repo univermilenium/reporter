@@ -157,7 +157,18 @@ class Login
      * @return boolean user's login status
      */
     public function isUserLoggedIn()
+    {        
+        $val =  $this->user_is_logged_in;
+        $this->validateCustomData();
+        return $val;
+    }
+
+    private function validateCustomData()
     {
-        return $this->user_is_logged_in;
+        if($_SESSION['plantel'] == '')
+        {
+            throw new Exception("La cuenta no tiene plantel asignado.", 1);
+            
+        }
     }
 }
