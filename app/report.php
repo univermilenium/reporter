@@ -5,7 +5,7 @@
     $action   = $_GET['action'];
     $courseid = (!isset($_GET['courseid'])) ? 0  : (int)$_GET['courseid'];
     $groupid  = (!isset($_GET['groupid'])) ? 0   : (int)$_GET['groupid'];
-    $plantel  = (!isset($_GET['plantel'])) ?  0  : (int)$_GET['plantel'];
+    $plantel  = (!isset($_GET['plantel'])) ?  0  : $_GET['plantel'];
 
     switch ($action)
     {            
@@ -14,7 +14,7 @@
             break;
 
         case 'groups':
-            echo $report->getGroups($courseid, true);
+            echo $report->getGroups($plantel, true);
             break;            
 
         case 'report':
