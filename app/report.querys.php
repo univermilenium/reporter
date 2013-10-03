@@ -74,9 +74,9 @@
 					AND g.id = ga.groupid
 					AND ra.userid = u.id
 					AND r.id = ra.roleid
-					AND (r.shortname = 'non-editingteacher')
-					AND g.id = :groupid
+					AND (r.shortname = 'non-editingteacher')					
 					AND u.suspended = 0
+					AND g.id = :groupid
 				
 			";
 		}
