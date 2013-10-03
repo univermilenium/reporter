@@ -94,7 +94,12 @@ class Login
             if($asignaturas->num_rows > 0)
             {
                  $result_row = $asignaturas->fetch_object();
-                 $_SESSION['plantel_asignaturas'] = $result_row;
+                 $arr_asignaturas = array();
+                 foreach($result_row as $row)
+                 {
+                    array_push($arr_asignaturas, $row);
+                 }
+                 $_SESSION['plantel_asignaturas'] = $arr_asignaturas;
             }
          }
     }

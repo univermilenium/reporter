@@ -21,9 +21,15 @@
 			}
 		}
 
-		public function getCourses($json = false)
+		public function getCourses($json = false, $asignaturas)
 		{
 			$rows = $this->getRows(Querys::getCoursesQuery());
+
+			//$rows_asignaturas = 
+
+
+
+			//print_r($asignaturas);
 			if(!$json)
 			{
 				return $rows;
