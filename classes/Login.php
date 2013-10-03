@@ -83,6 +83,27 @@ class Login
         $this->user_is_logged_in = true;
     }
 
+    private function getAsignaturas($plantel)
+    {
+
+        $this->db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+        if (!$this->db_connection->connect_errno)
+         {
+            $asignaturas = $this->db_connection->query("SELECT asignatura FROM asignaturas WHERE plantel = '" . $plantel . "';");
+
+            if($asignaturas->num_rows > 0)
+            {
+                 $result_row = $asignaturas->fetch_object();
+                 $arr_asignaturas = array();
+                 foreach($result_row as $row)
+                 {
+                    array_push($arr_asignaturas, $row);
+                 }
+                 $_SESSION['plantel_asignaturas'] = $arr_asignaturas;
+            }
+         }
+    }
+
     /**
      * log in with post data
      */
@@ -123,6 +144,7 @@ class Login
 
                         // set the login status to true
                         $this->user_is_logged_in = true;
+                        $this->getAsignaturas($result_row->plantel);
 
                     } else {
                         $this->errors[] = "Contraseña incorrecta.";
@@ -159,16 +181,7 @@ class Login
     public function isUserLoggedIn()
     {        
         $val =  $this->user_is_logged_in;
-        $this->validateCustomData();
         return $val;
     }
 
-    private function validateCustomData()
-    {
-        if($_SESSION['plantel'] == '')
-        {
-            throw new Exception("La cuenta no tiene plantel asignado.", 1);
-            
-        }
-    }
 }

@@ -21,15 +21,28 @@
 			}
 		}
 
-		public function getCourses($json = false)
+		public function getCourses($json = false, $asignaturas)
 		{
-			$rows = $this->getRows(Querys::getCoursesQuery());
-			if(!$json)
+			$rows 			  = $this->getRows(Querys::getCoursesQuery());
+			$rows_asignaturas = array();
+
+			foreach($rows as $row)
 			{
-				return $rows;
+				foreach ($asignaturas as $asignatura) 
+				{
+					if($asignatura == $row['shortname'])
+					{
+						array_push($rows_asignaturas, $row);						
+					}
+				}
 			}
 
-			return json_encode($rows);
+			if(!$json)
+			{
+				return $rows_asignaturas;
+			}
+
+			return json_encode($rows_asignaturas);
 		}
 
 		public function getTeacher($courseid, $groupid, $json = false)
@@ -62,9 +75,16 @@
 			return $rows;
 		}
 
-		public function getGroups($courseid, $plantel, $json = false)
+		public function getGroups($course_id, $plantel, $json = false)
 		{
-			$rows =  $this->getRows(Querys::getGroupsQuery(), array('courseid' => $courseid, 'plantel' => $plantel));
+
+			$this->params = array
+			(
+				'courseid' => $courseid
+			);	
+
+			$rows =  $this->getRows(Querys::getGroupsQuery(), array());			
+
 			if($json)
 			{
 				$rows = json_encode($rows);

@@ -30,7 +30,7 @@
 
 		public static function getGroupsQuery()
 		{
-			return "SELECT id, name FROM mdl_groups WHERE courseid = :courseid AND name LIKE '%:plantel%'";
+			return "SELECT id, name FROM mdl_groups WHERE courseid = :course_id";
 		}	
 
 		static public function addWhere($qry)
