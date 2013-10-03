@@ -75,16 +75,15 @@
 			return $rows;
 		}
 
-		public function getGroups($course_id, $plantel, $json = false)
-		{
+		public function getGroups($courseid, $plantel, $json = false)
+		{	
 
-			$this->params = array
-			(
-				'courseid' => $courseid
-			);	
-
-			$rows =  $this->getRows(Querys::getGroupsQuery(), array());			
-
+			$rows =  $this->getRows(Querys::getGroupsQuery(), 
+									array(
+										  ':courseid' => $courseid, 
+										  ':plantel' => "%".$plantel."%"
+										));			
+			
 			if($json)
 			{
 				$rows = json_encode($rows);

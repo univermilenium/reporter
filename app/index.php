@@ -71,8 +71,11 @@
     <div class="container">
         <div class="sixteen columns">
 
-            <p style="margin-top: 40px"><img src="app/images/logo.png" width="361" height="79"> </p>
-            <h1 class="Subtitle">Reportes</h1><a href="index.php?logout">Logout</a>
+<p  style="margin-top: 40px; float:left;"><img src="images/logo.png" width="361" height="79"> <span class="Subtitle">&nbsp;&nbsp;&nbsp;&nbsp;Reportes</span> </p>
+
+<div style="clear:both;"></div>
+   <a  href="index.php?logout">Logout</a>
+
 
             <hr />
         </div>
