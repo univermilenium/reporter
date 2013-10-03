@@ -68,9 +68,9 @@
 			return $rows;
 		}
 
-		public function getGroups($plantel, $json = false)
+		public function getGroups($courseid, $plantel, $json = false)
 		{
-			$rows =  $this->getRows(Querys::getGroupsQuery(), array('plantel' => $plantel));
+			$rows =  $this->getRows(Querys::getGroupsQuery(), array('courseid' => $courseid, 'plantel' => $plantel));
 			if($json)
 			{
 				$rows = json_encode($rows);
