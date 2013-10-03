@@ -37,8 +37,7 @@
 			$qry = Querys::getTeacherQuery($this->settings['prefix']);
 			$this->params = array
 			(
-				'groupid'   => $groupid,
-				'courseid'  => $courseid
+				'groupid'   => $groupid
 			);
 
 			$rows = $this->getRows($qry);

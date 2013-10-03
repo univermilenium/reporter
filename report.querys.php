@@ -64,7 +64,7 @@
 			"; **/
 			return "
 
-				SELECT DISTINCT c.fullname,u.username, u.firstname, u.lastname, g.name, u.id as userid
+				SELECT DISTINCT u.username, u.firstname, u.lastname, g.name, u.id as userid
 				FROM ".$prefix."user u,
 					".$prefix."groups g,
 					".$prefix."groups_members ga,
