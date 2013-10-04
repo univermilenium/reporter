@@ -156,6 +156,6 @@
 
 <!-- End Document
 ================================================== -->
-<script type="text/javascript" src="js/report.ui.js"></script>
+<script type="text/javascript" src="js/report.ui.min.js"></script>
 </body>
 </html>
