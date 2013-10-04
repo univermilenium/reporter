@@ -22,6 +22,7 @@
         }
     }
     
+    //print_r($_SERVER);
 ?>
 
 <!DOCTYPE html>
@@ -59,9 +60,6 @@
     <link rel="apple-touch-icon" href="app/images/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="72x72" href="app/images/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="app/images/apple-touch-icon-114x114.png">
-
-    <script type='text/javascript' src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
-    <script type='text/javascript' src='http://cdnjs.cloudflare.com/ajax/libs/knockout/2.3.0/knockout-min.js'></script> 
 
     <style type="text/css">
         .grid

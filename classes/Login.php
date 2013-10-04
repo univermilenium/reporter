@@ -85,22 +85,17 @@ class Login
 
     private function getAsignaturas($plantel)
     {
-
         $this->db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
         if (!$this->db_connection->connect_errno)
          {
             $asignaturas = $this->db_connection->query("SELECT asignatura FROM asignaturas WHERE plantel = '" . $plantel . "';");
 
-            if($asignaturas->num_rows > 0)
-            {
-                 $result_row = $asignaturas->fetch_object();
-                 $arr_asignaturas = array();
-                 foreach($result_row as $row)
+                $arr_asignaturas = array();
+                 while ($row = $asignaturas->fetch_row()) 
                  {
-                    array_push($arr_asignaturas, $row);
+                   array_push($arr_asignaturas, $row[0]);
                  }
                  $_SESSION['plantel_asignaturas'] = $arr_asignaturas;
-            }
          }
     }
 
@@ -146,7 +141,6 @@ class Login
                         $this->user_is_logged_in = true;
                         if($_GET['cplantel']!='') $this->getAsignaturas($_GET['cplantel']);
 						else $this->getAsignaturas($result_row->plantel);
-
                     } else {
                         $this->errors[] = "Contraseña incorrecta.";
                     }

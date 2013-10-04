@@ -42,8 +42,8 @@
     <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
 
-    <script type='text/javascript' src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
-    <script type='text/javascript' src='http://cdnjs.cloudflare.com/ajax/libs/knockout/2.3.0/knockout-min.js'></script> 
+    <script type='text/javascript' src="js/jquery.min.js"></script>
+    <script type='text/javascript' src='js/knockout-min.js'></script> 
 
     <style type="text/css">
         .grid
@@ -70,12 +70,21 @@
     ================================================== -->
     <div class="container">
         <div class="sixteen columns">
+<<<<<<< HEAD
 <!--
 <p  style="margin-top: 40px; float:left;"><img src="images/logo.png" width="361" height="79"> <span class="Subtitle">&nbsp;&nbsp;&nbsp;&nbsp;Reportes</span> </p>
 
 <div style="clear:both;"></div>
    <a  href="index.php?logout">Salir</a>
 -->
+=======
+
+
+<div style="clear:both;"></div>
+   
+
+
+>>>>>>> 78db1acc7ef2eb054b915d07467c29b64d868ca4
             <hr />
         </div>
         <div class="one-third column">

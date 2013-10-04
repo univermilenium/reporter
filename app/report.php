@@ -9,12 +9,13 @@
     $courseid = (!isset($_GET['courseid'])) ? 0  : (int)$_GET['courseid'];
     $groupid  = (!isset($_GET['groupid'])) ? 0   : (int)$_GET['groupid'];
     $plantel  = (!isset($_GET['plantel'])) ?  0  : $_GET['plantel'];
+    $tipo     = $_SESSION['tipo'] ;
     $asigna   = $_SESSION['plantel_asignaturas'];
-    
+
     switch ($action)
     {            
         case 'courses':
-            echo $report->getCourses(true, $asigna);
+            echo $report->getCourses(true, $asigna, $tipo);
             break;
 
         case 'groups':

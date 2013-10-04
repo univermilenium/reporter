@@ -1,11 +1,12 @@
 <?php
     require('db.class.php');
     require('report.querys.php');
+    require('courses.class.php');
 
 	Class reporter extends db 
 	{
 		public $settings;
-		public $settings_file = "settings.ini";		
+		public $settings_file = "settings.ini";	
 
 		function __construct()
 		{
@@ -21,7 +22,7 @@
 			}
 		}
 
-		public function getCourses($json = false, $asignaturas)
+		public function getCourses($json = false, $asignaturas, $type)
 		{
 			$rows 			  = $this->getRows(Querys::getCoursesQuery());
 			$rows_asignaturas = array();
@@ -36,6 +37,8 @@
 					}
 				}
 			}
+
+			$rows_asignaturas = Courses::filterByType($rows_asignaturas, $type, $asignaturas);
 
 			if(!$json)
 			{
