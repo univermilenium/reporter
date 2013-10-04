@@ -144,7 +144,8 @@ class Login
 
                         // set the login status to true
                         $this->user_is_logged_in = true;
-                        $this->getAsignaturas($result_row->plantel);
+                        if($_GET['cplantel']!='') $this->getAsignaturas($_GET['cplantel']);
+						else $this->getAsignaturas($result_row->plantel);
 
                     } else {
                         $this->errors[] = "Contraseña incorrecta.";

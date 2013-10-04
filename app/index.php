@@ -4,7 +4,6 @@
     require_once("../libraries/password_compatibility_library.php");
     $login = new Login();
     if(!$login->isUserLoggedIn()){ header('location: ../index.php'); }
-	if($_GET['cplantel']!="") $login->getAsignaturas($_GET['cplantel']);
 ?>
 
 <!DOCTYPE html>
