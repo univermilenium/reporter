@@ -81,7 +81,18 @@
         </div>
         <div class="one-third column">
             <h4>Plantel: <?php echo $_SESSION['plantel'];?></h4>
+            <?php if(!isset($_SESSION['plantel'])){ ?>
             <input type="hidden" name="plantel" id="plantel" value="<?php echo $_SESSION['plantel'];?>" />
+            <?php }else{ ?>
+            <select name="plantel" id="plantel">
+            	<option>--Seleccione--</option>
+                <option value="RAYON">Ray&oacute;n</option>
+                <option value="NEZA">Nesahualc&oacute;tl</option>
+                <option value="IXTAPA">Ixtapaluca</option>
+                <option value="HIDALGO">Hidalgo</option>
+                <option value="SALUD">Salud</option>
+            </select>
+            <?php } ?>
         </div>
         <div class="one-third column">
             <h4>Seleccione la asignatura</h4>
