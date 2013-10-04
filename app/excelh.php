@@ -16,8 +16,8 @@
 
     $filename = sprintf("%s_%s_%s.xls", $cursotxt, $grupotxt, date(dmy));
     
-    header('Content-type: application/ms-excel');
-	header('Content-Disposition: attachment; filename='.$filename);    
+    //header('Content-type: application/ms-excel');
+	//header('Content-Disposition: attachment; filename='.$filename);    
 ?>
 
  <table style="width: 100%; margin-bottom: 25px;" id="resume_table">
