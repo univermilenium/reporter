@@ -84,7 +84,9 @@
             <?php if($_SESSION['plantel']!=''){ ?>
             <input type="hidden" name="plantel" id="plantel" value="<?php echo $_SESSION['plantel'];?>" />
             <?php }else{ ?>
+
             <select name="plantel" id="plantel" onChange="window.location='?cplantel='+this.value">
+
             	<option>--Seleccione--</option>
                 <option value="RAYON">Ray&oacute;n</option>
                 <option value="NEZA">Nezahualc&oacute;tl</option>
