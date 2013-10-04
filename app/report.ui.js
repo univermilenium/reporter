@@ -51,7 +51,7 @@
             var cursotxt    = $('#asignatura_txt').text();
             var grupotxt    = $('#grupo_txt').text();;
 
-            window.open('excelh.php?courseid='+courseid+'&plantel='+plantel+'&groupid='+groupid+'&planteltxt='+planteltxt+'&cursotxt='+cursotxt+'&grupotxt='+ grupotxt);
+            window.open('excelh.php?courseid='+courseid+'&plantel='+plantel+'&groupid='+groupid+'&cursotxt='+cursotxt+'&grupotxt='+ grupotxt);
             //e.preventDefault();
         }
 

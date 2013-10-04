@@ -15,14 +15,14 @@
 
     $filename = sprintf("0%s_%s_%s_%s.xls", $plantel, $cursotxt, $grupotxt, date(dmy));
     
-    header('Content-type: application/ms-excel');
-	header('Content-Disposition: attachment; filename='.$filename);    
+    //header('Content-type: application/ms-excel');
+	//header('Content-Disposition: attachment; filename='.$filename);    
 ?>
  <table style="width: 100%; margin-bottom: 25px;" id="resume_table">
-    <tr>
+    <!--tr>
         <td width="15%"><strong>Plantel:</strong></td>
         <td><span id="plantel_txt"><?php echo $planteltxt;?></span></td>
-    </tr>
+    </tr-->
     <tr>
         <td><strong>Asignatura:</strong></td>
         <td><span id="asignatura_txt"><?php echo $cursotxt;?></span></td>
