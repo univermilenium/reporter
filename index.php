@@ -1,12 +1,27 @@
 <?php
-     $_POST['user_name'] = (!isset($_GET['usuario']))? '' : $_GET['usuario'];
-     $_POST['user_password'] = (!isset($_GET['token']))? '' : $_GET['token'];
+
+     if(isset($_GET['usuario']))
+     {
+        $_POST['user_name'] = $_GET['usuario'];
+     }
+     if(isset($_GET['token']))
+     {
+        $_POST['user_password'] = $_GET['token'];
+     }
      
     require_once("config/db.php");
     require_once("classes/Login.php");
     require_once("libraries/password_compatibility_library.php");
+
     $login = new Login();
-    $login->loginWithPostData();
+    if (!empty($_POST['user_name']) && !empty($_POST['user_password'])) 
+    {
+        if(count($_GET)>0) 
+        {
+          $login->loginWithPostData();  
+        }
+    }
+    
 ?>
 
 <!DOCTYPE html>
