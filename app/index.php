@@ -84,10 +84,10 @@
             <?php if(!isset($_SESSION['plantel'])){ ?>
             <input type="hidden" name="plantel" id="plantel" value="<?php echo $_SESSION['plantel'];?>" />
             <?php }else{ ?>
-            <select name="plantel" id="plantel" data-bind="event: {change: getGroups}">
+            <select name="plantel" id="plantel" onchange="ReportViewModel.getCourses();">
             	<option>--Seleccione--</option>
                 <option value="RAYON">Ray&oacute;n</option>
-                <option value="NEZA">Nesahualc&oacute;tl</option>
+                <option value="NEZA">Nezahualc&oacute;tl</option>
                 <option value="IXTAPA">Ixtapaluca</option>
                 <option value="HIDALGO">Hidalgo</option>
                 <option value="SALUD">Salud</option>
