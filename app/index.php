@@ -93,7 +93,7 @@
                 <option value="HIDALGO">Hidalgo</option>
                 <option value="SALUD">Salud</option>
             </select>
-            <?php if($_GET['cplantel']!=''){ ?><script> $('#plantel').val(<?=$_GET['cplantel']?>) </script> <?php } ?>
+            <?php if($_GET['cplantel']!=''){ ?><script> $('#plantel').val('<?=$_GET['cplantel']?>'); </script> <?php } ?>
             <?php } ?>
         </div>
         <div class="one-third column">
