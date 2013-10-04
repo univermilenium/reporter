@@ -1,9 +1,18 @@
 <?php 
-    require('reporter.class.php');
+    require('classes/reporter.class.php');
     require('../classes/Login.php');
     $report   = new Reporter();
     $login    = new Login();
-    if(!$login->isUserLoggedIn()){ header('location: ../index.php'); }
+
+    if (!isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) != 'xmlhttprequest')
+    {
+        throw new Exception("Not Allowed!", 1);
+    }
+
+    if(!$login->isUserLoggedIn())
+    {
+        throw new Exception("Not Allowed!", 1);        
+    }
 
     $action   = $_GET['action'];
     $courseid = (!isset($_GET['courseid'])) ? 0  : (int)$_GET['courseid'];

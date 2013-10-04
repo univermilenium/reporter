@@ -68,16 +68,16 @@
 
     <!-- Primary Page Layout
     ================================================== -->
-    <div class="container">
+    <div class="container" style="margin-top: 55px;">
   
             <div class="one-third column">
-              <h1>Reporte</h1>
-              <h5>Seguimiento - Docentes y Estudiantes</h5>
+              <h3>Seguimiento</h3>
+              
             </div>
             <div class="one-third column">
                 &nbsp;
             </div>
-            <div class="one-third column">
+            <div class="one-third column" style="text-align: right;">
                 <span class="user_name">
                     <?php echo utf8_encode($_SESSION['nombre']);?> <?php echo utf8_encode($_SESSION['apellidos']);?> 
                 </span> <br>
@@ -115,24 +115,21 @@
             <h4>Seleccione el grupo</h4>
             <select name="groupid" id="groupid" data-bind="event: { change: updateResume }, options: groups, optionsText: 'name', optionsValue: 'id'"> </select>            
         </div> 
-        
-        <!--div class="sixteen columns">            
-            <a href="#" class="full-width button" id="generator" data-bind="click: updateResume">Mostrar Resumen del Grupo</a>
-        </div--> 
+    
 
   <div class="sixteen columns clearfix" id="resume" style="display:none;">
-    <div class="thirteen columns alpha">
-  <table style="width: 100%; margin-bottom: 25px;" id="resume_table">
-    <tr>
-        <td><strong>Asignatura:</strong></td>
+
+  <table style="width: 100%; margin-bottom: 25px; border: solid 1px #ECE5E5;" id="resume_table">
+    <tr style="border-bottom: solid 1px #CCC;">
+        <td style="width:150px;text-align:left; padding-top:10px;padding-left: 5px;"><strong>Asignatura:</strong></td>
         <td><span id="asignatura_txt"></span></td>
     </tr>
-    <tr>
-        <td><strong>Grupo:</strong></td>
+    <tr style="border-bottom: solid 1px #CCC;">
+        <td style="width:150px;text-align:left; padding-top:10px;padding-left: 5px;"><strong>Grupo:</strong></td>
         <td><span id="grupo_txt"></span></td>
     </tr>    
-    <tr>
-        <td><strong>Asesor:</strong></td>
+    <tr style="border-bottom: solid 1px #CCC;">
+        <td style="width:150px;text-align:left; padding-top:10px;padding-left: 5px;"><strong>Asesor:</strong></td>
         <td>
             <ul data-bind="foreach: teachers">
                 <li>
@@ -143,14 +140,14 @@
             </ul>
         </td>
     </tr>    
-    <tr>
-        <td><strong>Fecha:</strong></td>
+    <tr style="border-bottom: solid 1px #CCC;">
+        <td style="width:150px;text-align:left;padding-top:10px;padding-left: 5px;"><strong>Fecha:</strong></td>
         <td><span id="fecha_txt"></span></td>
     </tr>                
   </table>         
 
-    </div>
-    <div class="three columns omega"><a href="#" class="button" id="download" data-bind="click: getExcel">Descargar Excel</a></div>
+
+    <div class="three columns"><a href="#" style="margin-left:-10px;" class="button" id="download" data-bind="click: getExcel">Descargar Excel</a></div>
   </div>    
          
 
