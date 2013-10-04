@@ -81,10 +81,10 @@
         </div>
         <div class="one-third column">
             <h4>Plantel: <?php echo $_SESSION['plantel'];?></h4>
-            <?php if(!isset($_SESSION['plantel'])){ ?>
+            <?php if($_SESSION['plantel']!=''){ ?>
             <input type="hidden" name="plantel" id="plantel" value="<?php echo $_SESSION['plantel'];?>" />
             <?php }else{ ?>
-            <select name="plantel" id="plantel" onchange="ReportViewModel.getCourses();">
+            <select name="plantel" id="plantel" onchange="getCourses();">
             	<option>--Seleccione--</option>
                 <option value="RAYON">Ray&oacute;n</option>
                 <option value="NEZA">Nezahualc&oacute;tl</option>
