@@ -148,7 +148,7 @@ class Login
                     $this->errors[] = "El usuario no existe.";
                 }
             } else {
-                $this->errors[] = "No se puede conectar a la BD.";
+                $this->errors[] = "No se puede conectar a la BD." . $this->db_connection->connect_errno;
             }
         } elseif (empty($_POST['user_name'])) {
             $this->errors[] = "Campo Usuario vacio.";

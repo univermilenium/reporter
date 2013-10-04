@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD:app/classes/reporth.class.php
 	require('../reporter.class.php');
+=======
+	require('classes/reporter.class.php');
+>>>>>>> 6e1a94488e93bcc2abe15ccb9ece605677125f45:app/reporth.class.php
 
 	Class HorizontalReport extends reporter
 	{
