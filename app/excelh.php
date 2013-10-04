@@ -14,10 +14,10 @@
     $TEACHERS = $report->getTeacher($courseid, $groupid);  
     $ROWS     = $report->users;	
 
-    $filename = sprintf("0%s_%s_%s_%s.xls", $plantel, $cursotxt, $grupotxt, date(dmy));
+    $filename = sprintf("%s_%s_%s.xls", $cursotxt, $grupotxt, date(dmy));
     
-   // header('Content-type: application/ms-excel');
-	//header('Content-Disposition: attachment; filename='.$filename);    
+    header('Content-type: application/ms-excel');
+	header('Content-Disposition: attachment; filename='.$filename);    
 ?>
 
  <table style="width: 100%; margin-bottom: 25px;" id="resume_table">

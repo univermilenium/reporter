@@ -90,16 +90,12 @@ class Login
          {
             $asignaturas = $this->db_connection->query("SELECT asignatura FROM asignaturas WHERE plantel = '" . $plantel . "';");
 
-            if($asignaturas->num_rows > 0)
-            {
-                 $result_row = $asignaturas->fetch_object();
-                 $arr_asignaturas = array();
-                 foreach($result_row as $row)
+                $arr_asignaturas = array();
+                 while ($row = $asignaturas->fetch_row()) 
                  {
-                    array_push($arr_asignaturas, $row);
+                   array_push($arr_asignaturas, $row[0]);
                  }
                  $_SESSION['plantel_asignaturas'] = $arr_asignaturas;
-            }
          }
     }
 
