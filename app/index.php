@@ -84,7 +84,7 @@
             <?php if($_SESSION['plantel']!=''){ ?>
             <input type="hidden" name="plantel" id="plantel" value="<?php echo $_SESSION['plantel'];?>" />
             <?php }else{ ?>
-            <select name="plantel" id="plantel" data-bind="event { change: getCourses }">
+            <select name="plantel" id="plantel" data-bind="event { change: getGroups }">
             	<option>--Seleccione--</option>
                 <option value="RAYON">Ray&oacute;n</option>
                 <option value="NEZA">Nezahualc&oacute;tl</option>
