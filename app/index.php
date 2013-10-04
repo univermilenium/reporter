@@ -4,6 +4,7 @@
     require_once("../libraries/password_compatibility_library.php");
     $login = new Login();
     if(!$login->isUserLoggedIn()){ header('location: ../index.php'); }
+	if($_GET['cplantel']!="") $login->getAsignaturas($_GET['cplantel']);
 ?>
 
 <!DOCTYPE html>
@@ -84,7 +85,7 @@
             <?php if($_SESSION['plantel']!=''){ ?>
             <input type="hidden" name="plantel" id="plantel" value="<?php echo $_SESSION['plantel'];?>" />
             <?php }else{ ?>
-            <select name="plantel" id="plantel" data-bind="event { change: getGroups }">
+            <select name="plantel" id="plantel" onChange="window.location='?cplantel='+this.value">
             	<option>--Seleccione--</option>
                 <option value="RAYON">Ray&oacute;n</option>
                 <option value="NEZA">Nezahualc&oacute;tl</option>
@@ -92,6 +93,7 @@
                 <option value="HIDALGO">Hidalgo</option>
                 <option value="SALUD">Salud</option>
             </select>
+            <?php if($_GET['cplantel']!=''){ ?><script> $('#plantel').val(<?=$_GET['cplantel']?>) </script> <?php } ?>
             <?php } ?>
         </div>
         <div class="one-third column">
