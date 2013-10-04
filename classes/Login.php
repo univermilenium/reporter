@@ -85,7 +85,6 @@ class Login
 
     private function getAsignaturas($plantel)
     {
-
         $this->db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
         if (!$this->db_connection->connect_errno)
          {
@@ -146,7 +145,6 @@ class Login
                         $this->user_is_logged_in = true;
                         if($_GET['cplantel']!='') $this->getAsignaturas($_GET['cplantel']);
 						else $this->getAsignaturas($result_row->plantel);
-
                     } else {
                         $this->errors[] = "Contraseña incorrecta.";
                     }

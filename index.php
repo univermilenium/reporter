@@ -22,6 +22,7 @@
         }
     }
     
+    print_r($_SERVER);
 ?>
 
 <!DOCTYPE html>
