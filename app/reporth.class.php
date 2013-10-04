@@ -81,7 +81,7 @@
 					$user->Lastname 	= $row['Lastname'];
 					$user->ROLE 		= $row['ROLE'];
 					$user->grupo 		= $row['grupo'];
-					$user->lastaccess	= $row['lastaccess'];
+					$user->lastaccess	= ($row['lastaccess']==0)? 'Nunca' : date("d/m/Y H:i",$row['lastaccess']);
 
 					foreach($this->activities  as $activity)
 					{

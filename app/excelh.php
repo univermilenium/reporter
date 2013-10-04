@@ -14,10 +14,10 @@
     $TEACHERS = $report->getTeacher($courseid, $groupid);  
     $ROWS     = $report->users;	
 
-    $filename = sprintf("0%s_%s_%s_%s.xls", $plantel, $cursotxt, $grupotxt, date(dmy));
+    $filename = sprintf("%s_%s_%s.xls", $cursotxt, $grupotxt, date(dmy));
     
-   // header('Content-type: application/ms-excel');
-	//header('Content-Disposition: attachment; filename='.$filename);    
+    header('Content-type: application/ms-excel');
+	header('Content-Disposition: attachment; filename='.$filename);    
 ?>
 
  <table style="width: 100%; margin-bottom: 25px;" id="resume_table">
@@ -67,18 +67,20 @@
                 </tr>
                 <tbody >  
                 <?php foreach ($ROWS as $row):?>
+                <?php $usernamse = $row->Usernamse; 
+				if(in_array($usernamse,$teacher)===false): ?>
                 <?php
                     $totalrow  = 0;
                     $totalacts = 0;
                 ?>
                     <tr>
-                        <td><?php echo $row->Usernamse;?></td>
+                        <td><?php echo $usernamse?></td>
                         <td><?php echo $row->Firstname;?></td>
                         <td><?php echo $row->Lastname;?></td>
                         <td><?php echo $row->Email;?></td>
                         <td><?php echo $row->ROLE;?></td>
                         <td><?php echo $row->grupo;?></td>
-                        <td><?php if($row->lastaccess==0) echo "Nunca"; else echo date("d/m/Y H:i",$row->lastaccess);?></td>
+                        <td><?php echo $row->lastaccess;?></td>
 
 	                  	<?php foreach($report->activities as $activity):?>
 							<td>
@@ -91,9 +93,12 @@
                                     ?>
 								</strong>
 							</td>
-	                	<?php endforeach;?>     
+                        
+	                	<?php endforeach;?>
+						    
                         <td><?php echo $totalrow; ?></td>                   
                     </tr>
+					<?php endif; ?> 
                  <?php endforeach; ?>
                 <tbody>
             </table>

@@ -70,13 +70,12 @@
     ================================================== -->
     <div class="container">
         <div class="sixteen columns">
-
+<!--
 <p  style="margin-top: 40px; float:left;"><img src="images/logo.png" width="361" height="79"> <span class="Subtitle">&nbsp;&nbsp;&nbsp;&nbsp;Reportes</span> </p>
 
 <div style="clear:both;"></div>
    <a  href="index.php?logout">Salir</a>
-
-
+-->
             <hr />
         </div>
         <div class="one-third column">
