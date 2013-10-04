@@ -70,21 +70,16 @@
     ================================================== -->
     <div class="container">
         <div class="sixteen columns">
-<<<<<<< HEAD
 <!--
 <p  style="margin-top: 40px; float:left;"><img src="images/logo.png" width="361" height="79"> <span class="Subtitle">&nbsp;&nbsp;&nbsp;&nbsp;Reportes</span> </p>
 
 <div style="clear:both;"></div>
    <a  href="index.php?logout">Salir</a>
 -->
-=======
 
 
 <div style="clear:both;"></div>
-   
 
-
->>>>>>> 78db1acc7ef2eb054b915d07467c29b64d868ca4
             <hr />
         </div>
         <div class="one-third column">
