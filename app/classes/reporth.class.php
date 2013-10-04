@@ -1,6 +1,8 @@
 <?php
 
+
 	require('classes/reporter.class.php');
+
 
 	Class HorizontalReport extends reporter
 	{
@@ -42,16 +44,19 @@
 			if($activity->calificacion != "")
 			{
 				$estatus = $activity->calificacion;
+				$this->total_calif ++;
 			}
 
 			if($activity->calificacion == "" && $activity->estatus == "")
 			{
 				$estatus = "Sin Entrega";
+				$this->total_sinentrega ++;
 			}
 
 			if($activity->calificacion == "" && $activity->estatus != "")
 			{
 				$estatus = "Enviado para calificar";
+				$this->total_enviadas ++;
 			}			
 
 			return $estatus;

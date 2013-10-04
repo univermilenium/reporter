@@ -16,8 +16,8 @@
 
     $filename = sprintf("%s_%s_%s.xls", $cursotxt, $grupotxt, date(dmy));
     
-    //header('Content-type: application/ms-excel');
-	//header('Content-Disposition: attachment; filename='.$filename);    
+    header('Content-type: application/ms-excel');
+	header('Content-Disposition: attachment; filename='.$filename);    
 ?>
 
  <table style="width: 100%; margin-bottom: 25px;" id="resume_table">
@@ -48,7 +48,7 @@
     <tr>
         <td><strong>Fecha:</strong></td>
         <td><span id="fecha_txt"><?php echo $date = date('d-m-Y');?></span></td>
-    </tr>                
+    </tr>                               
   </table> 
 
    			<table class="grid" id="report_table">
@@ -68,7 +68,7 @@
                 <tbody >  
                 <?php foreach ($ROWS as $row):?>
                 <?php $usernamse = $row->Usernamse; 
-				if(in_array($usernamse,$teacher)===false && is_numeric($username)): ?>
+				if(in_array($usernamse,$teacher)===false && is_numeric(abs($usernamse))): ?>
                 <?php
                     $totalrow  = 0;
                     $totalacts = 0;
@@ -101,6 +101,23 @@
 					<?php endif; ?> 
                  <?php endforeach; ?>
                 <tbody>
+            </table>
+
+            <table>
+                <tr>
+                    <td><strong>Total de actividades calificadas:</strong></td>
+                    <td><?php echo $report->total_calif; ?></span></td>
+                </tr>   
+
+                <tr>
+                    <td><strong>Total de actividades sin calificar:</strong></td>
+                    <td><?php echo $report->total_enviadas; ?> </span></td>
+                </tr>   
+
+                <tr>
+                    <td><strong>Total de actividades sin entregar:</strong></td>
+                    <td><?php echo $report->total_sinentrega; ?></span></td>
+                </tr>
             </table>
 
             
