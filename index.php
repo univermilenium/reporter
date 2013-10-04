@@ -22,7 +22,6 @@
         }
     }
     
-    //print_r($_SERVER);
 ?>
 
 <!DOCTYPE html>
@@ -84,7 +83,7 @@
     ================================================== -->
     <div class="container">
         <div class="sixteen columns">
-            <p style="margin-top: 40px; float:left;"><img src="app/images/logo.png" width="361" height="79"> <span class="Subtitle">&nbsp;&nbsp;&nbsp;&nbsp;Reportes</span> </p>
+            <p style="margin-top: 40px; float:left;"><img src="app/images/logo.png" width="361" height="79"></p>
             
             <hr />
         </div>

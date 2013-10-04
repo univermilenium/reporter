@@ -1,5 +1,5 @@
 <?php
-	require('reporter.class.php');
+	require('classes/reporter.class.php');
 
 	Class HorizontalReport extends reporter
 	{
