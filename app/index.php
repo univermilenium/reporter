@@ -69,58 +69,60 @@
     <!-- Primary Page Layout
     ================================================== -->
     <div class="container">
-        <div class="sixteen columns">
-<!--
-<p  style="margin-top: 40px; float:left;"><img src="images/logo.png" width="361" height="79"> <span class="Subtitle">&nbsp;&nbsp;&nbsp;&nbsp;Reportes</span> </p>
+  
+            <div class="one-third column">
+              <h1>Reporte</h1>
+              <h5>Seguimiento - Docentes y Estudiantes</h5>
+            </div>
+            <div class="one-third column">
+                &nbsp;
+            </div>
+            <div class="one-third column">
+                <span class="user_name">
+                    <?php echo utf8_encode($_SESSION['nombre']);?> <?php echo utf8_encode($_SESSION['apellidos']);?> 
+                </span> <br>
 
-<div style="clear:both;"></div>
-   <a  href="index.php?logout">Salir</a>
--->
+                <span class="user_tipo">
+                    <?php echo utf8_encode($_SESSION['tipo']);?> 
+                </span> <br>
+ 
+            </div>
 
+ <hr />
 
-<div style="clear:both;"></div>
-
-            <hr />
-        </div>
         <div class="one-third column">
             <h4>Plantel: <?php echo $_SESSION['plantel'];?></h4>
-            <?php if($_SESSION['plantel']!=''){ ?>
-            <input type="hidden" name="plantel" id="plantel" value="<?php echo $_SESSION['plantel'];?>" />
-            <?php }else{ ?>
 
-            <select name="plantel" id="plantel" onChange="window.location='?cplantel='+this.value">
-
-            	<option>--Seleccione--</option>
-                <option value="RAYON">Ray&oacute;n</option>
-                <option value="NEZA">Nezahualc&oacute;tl</option>
-                <option value="IXTAPA">Ixtapaluca</option>
-                <option value="HIDALGO">Hidalgo</option>
-                <option value="SALUD">Salud</option>
-            </select>
-            <?php if($_GET['cplantel']!=''){ ?><script> $('#plantel').val('<?=$_GET['cplantel']?>'); </script> <?php } ?>
-            <?php } ?>
+            <?php if($_SESSION['plantel']!=''):?>
+                <input type="hidden" name="plantel" id="plantel" value="<?php echo $_SESSION['plantel'];?>" />
+            <?php else:?>
+                <select name="plantel" id="plantel" onChange="window.location='?cplantel='+this.value">
+                	<option>--Seleccione--</option>
+                    <option value="RAYON">Ray&oacute;n</option>
+                    <option value="NEZA">Nezahualc&oacute;tl</option>
+                    <option value="IXTAPA">Ixtapaluca</option>
+                    <option value="HIDALGO">Hidalgo</option>
+                    <option value="SALUD">Salud</option>
+                </select>                
+                <?php if($_GET['cplantel']!=''){ ?><script> $('#plantel').val('<?=$_GET['cplantel']?>'); </script> <?php } ?>
+            <?php endif; ?>
         </div>
         <div class="one-third column">
             <h4>Seleccione la asignatura</h4>
             <select name="courseid" id="courseid" data-bind="event: { change: getGroups }, options: courses, optionsText: 'shortname', optionsValue: 'id'"> </select>
         </div>
-        <div class="one-third column">
+        <div class="one-third column" id="group">
             <h4>Seleccione el grupo</h4>
-            <select name="groupid" id="groupid" data-bind="options: groups, optionsText: 'name', optionsValue: 'id'"> </select>            
-            
+            <select name="groupid" id="groupid" data-bind="event: { change: updateResume }, options: groups, optionsText: 'name', optionsValue: 'id'"> </select>            
         </div> 
         
-        <div class="sixteen columns">            
+        <!--div class="sixteen columns">            
             <a href="#" class="full-width button" id="generator" data-bind="click: updateResume">Mostrar Resumen del Grupo</a>
-        </div> 
+        </div--> 
 
   <div class="sixteen columns clearfix" id="resume" style="display:none;">
     <div class="thirteen columns alpha">
   <table style="width: 100%; margin-bottom: 25px;" id="resume_table">
-    <!--tr>
-        <td width="15%"><strong>Plantel:</strong></td>
-        <td><span id="plantel_txt"></span></td>
-    </tr-->
     <tr>
         <td><strong>Asignatura:</strong></td>
         <td><span id="asignatura_txt"></span></td>
@@ -157,6 +159,6 @@
 
 <!-- End Document
 ================================================== -->
-<script type="text/javascript" src="report.ui.js"></script>
+<script type="text/javascript" src="js/report.ui.js"></script>
 </body>
 </html>
