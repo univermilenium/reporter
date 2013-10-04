@@ -182,6 +182,7 @@ class Login
     public function isUserLoggedIn()
     {        
         $val =  $this->user_is_logged_in;
+		if($_GET['cplantel']!='') $this->getAsignaturas($_GET['cplantel']);
         return $val;
     }
 
