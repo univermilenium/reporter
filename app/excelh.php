@@ -1,5 +1,5 @@
 <?php
-    require('reporth.class.php');
+    require('classes/reporth.class.php');
     $report = new HorizontalReport();
 
     $courseid = (!isset($_GET['courseid'])) ? 0  : (int)$_GET['courseid'];
@@ -68,7 +68,7 @@
                 <tbody >  
                 <?php foreach ($ROWS as $row):?>
                 <?php $usernamse = $row->Usernamse; 
-				if(in_array($usernamse,$teacher)===false): ?>
+				if(in_array($usernamse,$teacher)===false && is_numeric($username)): ?>
                 <?php
                     $totalrow  = 0;
                     $totalacts = 0;

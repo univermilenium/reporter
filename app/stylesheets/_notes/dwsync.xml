@@ -4,4 +4,8 @@
 <file name="layout.css" server="ftp.online.univermilenium.edu.mx//moodle_dev/elearning/reportes/" local="130253236169125151" remote="130253736000000000" Dst="2" />
 <file name="skeleton.css" server="ftp.online.univermilenium.edu.mx//moodle_dev/elearning/reportes/" local="130253236169155153" remote="130253736000000000" Dst="2" />
 <file name="univer.css" server="ftp.online.univermilenium.edu.mx//moodle_dev/elearning/reportes/" local="130253236169165154" remote="130253736000000000" Dst="2" />
+<file name="skeleton.css" server="ftp.online.univermilenium.edu.mx//moodle_dev/elearning/reporter/" local="130253236169155153" remote="130253959800000000" Dst="2" />
+<file name="layout.css" server="ftp.online.univermilenium.edu.mx//moodle_dev/elearning/reporter/" local="130253236169125151" remote="130253959800000000" Dst="2" />
+<file name="base.css" server="ftp.online.univermilenium.edu.mx//moodle_dev/elearning/reporter/" local="130253236169125151" remote="130253959800000000" Dst="2" />
+<file name="univer.css" server="ftp.online.univermilenium.edu.mx//moodle_dev/elearning/reporter/" local="130253982463615489" remote="130253959800000000" Dst="2" />
 </dwsync>

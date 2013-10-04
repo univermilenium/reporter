@@ -1,6 +1,6 @@
 <?php
 
-    require('reporter.class.php');
+    require('clases/reporter.class.php');
     
     Class Teacher extends reporter
     {
