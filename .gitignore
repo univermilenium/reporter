@@ -1,0 +1,7 @@
+#ignoring files
+_notes/
+app/_notes/
+classes/_notes/
+config/_notes/
+libraries/_notes/
+views/_notes/
