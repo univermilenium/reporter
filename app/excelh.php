@@ -68,7 +68,7 @@
                 <tbody >  
                 <?php foreach ($ROWS as $row):?>
                 <?php $usernamse = $row->Usernamse; 
-				if(in_array($usernamse,$teacher)===false && is_numeric($username)): ?>
+				if(in_array($usernamse,$teacher)===false && is_numeric(abs($usernamse))): ?>
                 <?php
                     $totalrow  = 0;
                     $totalacts = 0;
