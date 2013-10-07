@@ -68,13 +68,13 @@
                 <tbody >  
                 <?php foreach ($ROWS as $row):?>
                 <?php $usernamse = $row->Usernamse; 
-				if(in_array($usernamse,$teacher)===false && is_numeric(abs($usernamse))): ?>
-                <?php
+				if(in_array($usernamse,$teacher)===false && is_numeric($usernamse)==1): ?>
+                <?php 
                     $totalrow  = 0;
                     $totalacts = 0;
                 ?>
                     <tr>
-                        <td><?php echo $usernamse?></td>
+                        <td><?php echo $usernamse;?></td>
                         <td><?php echo $row->Firstname;?></td>
                         <td><?php echo $row->Lastname;?></td>
                         <td><?php echo $row->Email;?></td>
