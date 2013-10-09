@@ -110,6 +110,14 @@ class Registration
                 // the PASSWORD_DEFAULT constant is defined by the PHP 5.5, or if you are using PHP 5.3/5.4, by the password hashing
                 // compatibility library                
                 $this->user_password_hash = password_hash($this->user_password, PASSWORD_DEFAULT);
+				
+				//add more parameters for E-Learnig reporter by Pablo César Sánchez Porta
+				$this->nombre 		= $_POST['nombre'];
+				$this->apellidos 	= $_POST['apellidos'];
+				$this->tipo 		= $_POST['tipo'];
+				$this->plantel 		= $_POST['plantel'];
+				$this->addusers		= $_POST['addusers'];
+				
 
                 // check if user already exists
                 $query_check_user_name = $this->db_connection->query("SELECT * FROM users WHERE user_name = '" . $this->user_name . "';");
@@ -118,7 +126,7 @@ class Registration
                     $this->errors[] = "Sorry, that user name is already taken. Please choose another one.";
                 } else {
                     // write new users data into database
-                    $query_new_user_insert = $this->db_connection->query("INSERT INTO users (user_name, user_password_hash, user_email) VALUES('" . $this->user_name . "', '" . $this->user_password_hash . "', '" . $this->user_email . "');");
+                    $query_new_user_insert = $this->db_connection->query("INSERT INTO users (user_name, user_password_hash, user_email, nombre, apellidos, tipo, plantel, addusers) VALUES('" . $this->user_name . "', '" . $this->user_password_hash . "', '" . $this->user_email . "', '" . $this->nombre . "', '" . $this->apellidos . "', '" . $this->tipo . "', '" . $this->plantel . "', '" . $this->addusers . "');");
 
                     if ($query_new_user_insert) {
                         $this->messages[] = "Your account has been created successfully. You can now log in.";

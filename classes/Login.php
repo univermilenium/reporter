@@ -116,7 +116,7 @@ class Login
                 // escape the POST stuff
                 $this->user_name = $this->db_connection->real_escape_string($_POST['user_name']);
                 // database query, getting all the info of the selected user
-                $checklogin = $this->db_connection->query("SELECT user_name, user_email, user_password_hash, nombre, apellidos, tipo, plantel FROM users WHERE user_name = '" . $this->user_name . "';");
+                $checklogin = $this->db_connection->query("SELECT user_name, user_email, user_password_hash, nombre, apellidos, tipo, plantel, addusers FROM users WHERE user_name = '" . $this->user_name . "';");
 
                 // if this user exists
                 if ($checklogin->num_rows == 1) {
@@ -134,6 +134,7 @@ class Login
                         $_SESSION['apellidos']  = $result_row->apellidos;
                         $_SESSION['tipo']       = $result_row->tipo;
                         $_SESSION['plantel']    = $result_row->plantel;
+						$_SESSION['addusers']	= $result_row->addusers;
 
                         $_SESSION['user_logged_in'] = 1;
 

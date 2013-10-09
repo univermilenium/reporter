@@ -69,7 +69,10 @@
     <!-- Primary Page Layout
     ================================================== -->
     <div class="container" style="margin-top: 55px;">
-  
+   <?php if($_SESSION['addusers']==1): ?>
+  <button onclick="window.location='../register.php'" style="position:absolute; right:5px; top:-35px;">Generar usuario</button>
+  <?php endif; ?>
+ 
             <div class="one-third column">
               <h3>Seguimiento</h3>
               

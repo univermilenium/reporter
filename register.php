@@ -32,7 +32,11 @@ if (version_compare(PHP_VERSION, '5.3.7', '<')) {
 
 // include the configs / constants for the database connection
 require_once("config/db.php");
-
+    require_once("classes/Login.php");
+    require_once("libraries/password_compatibility_library.php");
+    $login = new Login();
+    if(!$login->isUserLoggedIn()){ header('location: index.php'); }
+	if($_SESSION['addusers']==1){
 // load the registration class
 require_once("classes/Registration.php");
 
@@ -42,3 +46,5 @@ $registration = new Registration();
 
 // showing the register view (with the registration form, and messages/errors)
 include("views/register.php");
+	}else echo '<h1>Acceso denegado</h1>';
+?>
