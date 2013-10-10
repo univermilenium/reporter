@@ -50,6 +50,8 @@ $registration = new Registration();
 require_once("classes/Users.php");
 $u= new Users(); 
 
+ //informacion de los planteles
+ $planteles = array(''=>'Todos','RAYON'=>'Rayón', 'NEZA'=>'Nezahualcóyotl', 'IXTAPA'=>'Ixtapaluca', 'HIDALGO'=>'Hidalgo', 'SALUD'=>'Salud', 'ECAT'=>'Ecatepec');
 include("views/register.php");
 	}else echo '<h1>Acceso denegado</h1>';
 ?>

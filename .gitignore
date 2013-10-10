@@ -1,5 +1,5 @@
 #ignoring files
-_notes/
+*.xml
 app/_notes/
 classes/_notes/
 config/_notes/

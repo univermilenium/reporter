@@ -62,6 +62,7 @@
 		$('#register').val("Modificar");
 		$('#login_input_password_new').removeAttr( "required" );
 		$('#login_input_password_repeat').removeAttr( "required" );
+		$('#nombre').focus();
 	}
 	</script>
 </head>
@@ -109,32 +110,32 @@ if ($registration->messages) {
 ?>
 <!-- errors & messages --->
 <div class="nine columns alpha" id="form_register">
-<form method="post" action="register.php" name="registerform">   
+<form method="post" action="register.php" name="registerform" id="registerform">   
     <input type="hidden" name="user_id" id="user_id">
     <!-- the user name input field uses a HTML5 pattern check -->
-    <label style="float:left; margin-right:15px;">Usuario
+    <label class="four columns alpha">Usuario
     <input id="login_input_username" class="login_input" type="text" pattern="[a-zA-Z0-9]{2,64}" name="user_name" title="sólo caractéres alfanúmericos, de 2 a 64" required />
     
     </label>
     <!-- the email input field uses a HTML5 email type check -->
-    <label>Correo electrónico    
+    <label class="four columns omega">Correo electrónico    
     <input id="login_input_email" class="login_input" type="email" name="user_email" required />
     </label>        
     
-    <label style="float:left; margin-right:15px;">Contraseña
+    <label class="four columns alpha">Contraseña
     <input id="login_input_password_new" class="login_input" type="password" name="user_password_new" pattern=".{6,}" required autocomplete="off" title="mínimo 6 caractéres" />
     </label>  
     
-    <label>Confirmar contraseña
+    <label class="four columns omega">Confirmar contraseña
     <input id="login_input_password_repeat" class="login_input" type="password" name="user_password_repeat" pattern=".{6,}" required autocomplete="off" />
     </label>
-    <label style="float:left; margin-right:15px;">Nombre
+    <label class="four columns alpha">Nombre
     <input name="nombre" type="text" id="nombre" />
     </label>    
-    <label>Apellidos
+    <label class="four columns omega">Apellidos
     <input name="apellidos" type="text" id="apellidos" />
     </label>    
-    <label style="float:left; margin-right:15px;">Tipo
+    <label class="four columns alpha">Tipo
     <select name="tipo" id="tipo" required>
     	<option value=""></option>
         <option value="DIRECTOR">Director</option>
@@ -144,17 +145,14 @@ if ($registration->messages) {
         <option value="CRIMINOLOGIA">Coordinador de Criminología</option>
     </select>
     </label>  
-    <label>Plantel
+    <label class="four columns omega">Plantel
     <select name="plantel" id="plantel">
-    	<option value="">Todos</option>
-        <option value="RAYON">Rayon</option>
-        <option value="NEZA">Nezahoalcóyotl</option>
-        <option value="IXTAPA">Ixtapaluca</option>
-        <option value="HIDALGO">Hidalgo</option>
-        <option value="SALUD">Salud</option>
+    	<?php foreach($planteles as $c=>$v): ?>
+    	<option value="<?=$c?>"><?=$v?></option>
+        <?php endforeach; ?>
     </select>
     </label>    
-    <label>
+    <label class="eight columns alpha">
     <input name="addusers" type="checkbox" id="addusers" value="1" /> Activar la administracion de usuarios
     </label>    
     <input type="submit"  name="register" id="register" value="Registrar" />

@@ -5,4 +5,7 @@
 <file name="Registration.php" server="ftp.online.univermilenium.edu.mx//moodle_dev/elearning/reporter/" local="130259065252249321" remote="130259029200000000" Dst="2" />
 <file name="Login.php" server="ftp.online.univermilenium.edu.mx//moodle_dev/elearning/reporter/" local="130258294382131099" remote="130258263600000000" Dst="2" />
 <file name="Users.php" server="ftp.online.univermilenium.edu.mx//moodle_dev/elearning/reporter/" local="130258999681684754" remote="130258963200000000" Dst="2" />
+<file name="Registration.php" server="ftp.online.univermilenium.edu.mx//reporter/" local="130259065252249321" remote="130259045400000000" Dst="2" />
+<file name="Login.php" server="ftp.online.univermilenium.edu.mx//reporter/" local="130258294382131099" remote="130259045400000000" Dst="2" />
+<file name="Users.php" server="ftp.online.univermilenium.edu.mx//reporter/" local="130258999681684754" remote="130259045400000000" Dst="2" />
 </dwsync>
