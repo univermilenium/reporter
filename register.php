@@ -37,6 +37,7 @@ require_once("config/db.php");
     $login = new Login();
     if(!$login->isUserLoggedIn()){ header('location: index.php'); }
 	if($_SESSION['addusers']==1){
+
 // load the registration class
 require_once("classes/Registration.php");
 
@@ -45,6 +46,10 @@ require_once("classes/Registration.php");
 $registration = new Registration();
 
 // showing the register view (with the registration form, and messages/errors)
+
+require_once("classes/Users.php");
+$u= new Users(); 
+
 include("views/register.php");
 	}else echo '<h1>Acceso denegado</h1>';
 ?>

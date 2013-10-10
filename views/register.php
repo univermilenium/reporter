@@ -48,11 +48,27 @@
             border-bottom: 1px solid #CCC;
         }
     </style>
+    <script>
+	function editar(p){
+		$('#user_id').val(p[0]);
+		$('#login_input_username').val(p[1]);
+		$('#login_input_email').val(p[2]);
+		$('#nombre').val(p[3]);
+		$('#apellidos').val(p[4]);
+		$('#tipo').val(p[5]);
+		$('#plantel').val(p[6]);
+		if(p[7]==1) document.registerform.addusers.checked=true;
+		else document.registerform.addusers.checked=false;
+		$('#register').val("Modificar");
+		$('#login_input_password_new').removeAttr( "required" );
+		$('#login_input_password_repeat').removeAttr( "required" );
+	}
+	</script>
 </head>
 <body>
     <div class="container" style="margin-top: 55px;">
   <?php if($_SESSION['addusers']==1): ?>
-  <button onclick="window.location='index.php'" style="position:absolute; right:5px; top:-35px;">Regresar a reportes</button>
+  <button onClick="window.location='index.php'" style="position:absolute; right:5px; top:-35px;">Regresar a reportes</button>
   <?php endif; ?>
             <div class="one-third column">
               <h3>Seguimiento</h3>
@@ -63,11 +79,11 @@
             </div>
             <div class="one-third column" style="text-align: right;">
                 <span class="user_name">
-                    <?php echo utf8_encode($_SESSION['nombre']);?> <?php echo utf8_encode($_SESSION['apellidos']);?> 
+                    <?php echo ($_SESSION['nombre']);?> <?php echo ($_SESSION['apellidos']);?> 
                 </span> <br>
 
                 <span class="user_tipo">
-                    <?php echo utf8_encode($_SESSION['tipo']);?> 
+                    <?php echo ($_SESSION['tipo']);?> 
                 </span> <br>
  
             </div>
@@ -75,35 +91,33 @@
  <hr />
 <div class="sixteen columns clearfix">
 <!-- errors & messages --->
-<div style="color:#900; background:#FFA6A6">
 <?php
 
 // show negative messages
 if ($registration->errors) {
     foreach ($registration->errors as $error) {
-        echo $error;    
+        echo '<div style="color:#900; background:#FFA6A6; padding:10px; font-weight:bold;">'.$error.'</div>';    
     }
 }
 
 // show positive messages
 if ($registration->messages) {
     foreach ($registration->messages as $message) {
-        echo $message;
+        echo '<div style=" color:#060; background:#B9FFB9; padding:10px; font-weight:bold;">'.$message.'</div>';
     }
 }
-
 ?>
-</div>
 <!-- errors & messages --->
+<div class="nine columns alpha" id="form_register">
 <form method="post" action="register.php" name="registerform">   
-    
+    <input type="hidden" name="user_id" id="user_id">
     <!-- the user name input field uses a HTML5 pattern check -->
     <label style="float:left; margin-right:15px;">Usuario
     <input id="login_input_username" class="login_input" type="text" pattern="[a-zA-Z0-9]{2,64}" name="user_name" title="sólo caractéres alfanúmericos, de 2 a 64" required />
     
     </label>
     <!-- the email input field uses a HTML5 email type check -->
-    <label>User's email    
+    <label>Correo electrónico    
     <input id="login_input_email" class="login_input" type="email" name="user_email" required />
     </label>        
     
@@ -115,13 +129,13 @@ if ($registration->messages) {
     <input id="login_input_password_repeat" class="login_input" type="password" name="user_password_repeat" pattern=".{6,}" required autocomplete="off" />
     </label>
     <label style="float:left; margin-right:15px;">Nombre
-    <input type="text" name="nombre" />
+    <input name="nombre" type="text" id="nombre" />
     </label>    
     <label>Apellidos
-    <input type="text" name="apelidos" />
+    <input name="apellidos" type="text" id="apellidos" />
     </label>    
     <label style="float:left; margin-right:15px;">Tipo
-    <select name="tipo" required>
+    <select name="tipo" id="tipo" required>
     	<option value=""></option>
         <option value="DIRECTOR">Director</option>
         <option value="PEDAGOGIA">Coordinador de Pedagogia</option>
@@ -131,7 +145,7 @@ if ($registration->messages) {
     </select>
     </label>  
     <label>Plantel
-    <select name="plantel">
+    <select name="plantel" id="plantel">
     	<option value="">Todos</option>
         <option value="RAYON">Rayon</option>
         <option value="NEZA">Nezahoalcóyotl</option>
@@ -141,11 +155,16 @@ if ($registration->messages) {
     </select>
     </label>    
     <label>
-    <input type="checkbox" name="addusers" value="1" /> El usuario puede agregar más usuarios
+    <input name="addusers" type="checkbox" id="addusers" value="1" /> Activar la administracion de usuarios
     </label>    
-    <input type="submit"  name="register" value="Registrar" />
+    <input type="submit"  name="register" id="register" value="Registrar" />
+    <input type="reset" value="Cancelar" onClick="window.location='register.php'" />
     
 </form>
+</div>
+	<div class="seven columns omega" id="users">
+    <?php include("users.php") ?>
+    </div>
 </div>
 	</div>
 </body>

@@ -70,7 +70,7 @@
     ================================================== -->
     <div class="container" style="margin-top: 55px;">
    <?php if($_SESSION['addusers']==1): ?>
-  <button onclick="window.location='../register.php'" style="position:absolute; right:5px; top:-35px;">Generar usuario</button>
+  <button onclick="window.location='../register.php'" style="position:absolute; right:5px; top:-35px;">Administrar usuarios</button>
   <?php endif; ?>
  
             <div class="one-third column">
@@ -82,11 +82,11 @@
             </div>
             <div class="one-third column" style="text-align: right;">
                 <span class="user_name">
-                    <?php echo utf8_encode($_SESSION['nombre']);?> <?php echo utf8_encode($_SESSION['apellidos']);?> 
+                    <?php echo ($_SESSION['nombre']);?> <?php echo ($_SESSION['apellidos']);?> 
                 </span> <br>
 
                 <span class="user_tipo">
-                    <?php echo utf8_encode($_SESSION['tipo']);?> 
+                    <?php echo ($_SESSION['tipo']);?> 
                 </span> <br>
  
             </div>

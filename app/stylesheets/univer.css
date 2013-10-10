@@ -1,0 +1,6 @@
+.users th{ font-weight:bold; color:#FFF; }
+.users tr:hover{ background:#D1D2F1; }
+.users tr:first-child{ background:#9AADED !important;}
+.users td{ padding:2px 5px; vertical-align:middle;}
+.users img { cursor:pointer; width:15px; vertical-align:middle; }
+.users img:hover{  width:20px; }

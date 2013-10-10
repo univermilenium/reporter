@@ -31,7 +31,16 @@ class Registration
      * @var string $user_password_hash The user's password hash
      */
     private $user_password_hash = "";
-    /**
+     /**
+     * @vars string adicionales para E-Learning
+     */
+	 private $user_id	= 0;
+	 private $nombre	= "";
+	 private $apellidos = "";
+	 private $tipo		= "";
+	 private $plantel	= "";
+	 private $addusers	= 0;
+   /**
      * @var boolean $registration_successful The user's registration success status
      */
     public $registration_successful = false;
@@ -50,9 +59,11 @@ class Registration
      */
     public function __construct()
     {
-        if (isset($_POST["register"])) {
+        if ($_POST["register"]=="Registrar") {
             $this->registerNewUser();
-        }
+        }elseif($_POST["register"]=="Modificar"){
+			$this->updateUser();
+		}
     }
 
     /**
@@ -129,17 +140,98 @@ class Registration
                     $query_new_user_insert = $this->db_connection->query("INSERT INTO users (user_name, user_password_hash, user_email, nombre, apellidos, tipo, plantel, addusers) VALUES('" . $this->user_name . "', '" . $this->user_password_hash . "', '" . $this->user_email . "', '" . $this->nombre . "', '" . $this->apellidos . "', '" . $this->tipo . "', '" . $this->plantel . "', '" . $this->addusers . "');");
 
                     if ($query_new_user_insert) {
-                        $this->messages[] = "Your account has been created successfully. You can now log in.";
+                        $this->messages[] = "El usuario se creó con éxito.";
                         $this->registration_successful = true;
                     } else {
-                        $this->errors[] = "Sorry, your registration failed. Please go back and try again.";
+                        $this->errors[] = "Error, el registro fallo. Por favor intentalo de nuevo.";
                     }
                 }
             } else {
-                $this->errors[] = "Sorry, no database connection.";
+                $this->errors[] = "No se puede conectar a la base de datos.";
             }
         } else {
-            $this->errors[] = "An unknown error occurred.";
+            $this->errors[] = "Error desconocido.";
         }
     }
+	
+	private function updateUser()
+	{
+        if (empty($_POST['user_name'])) {
+            $this->errors[] = "Empty Username";
+        } elseif ($_POST['user_password_new'] !== $_POST['user_password_repeat']) {
+            $this->errors[] = "Password and password repeat are not the same";
+        } elseif ($_POST['user_password_new']!='' && strlen($_POST['user_password_new']) < 6) {
+            $this->errors[] = "Password has a minimum length of 6 characters";
+        } elseif (strlen($_POST['user_name']) > 64 || strlen($_POST['user_name']) < 2) {
+            $this->errors[] = "Username cannot be shorter than 2 or longer than 64 characters";
+        } elseif (!preg_match('/^[a-z\d]{2,64}$/i', $_POST['user_name'])) {
+            $this->errors[] = "Username does not fit the name scheme: only a-Z and numbers are allowed, 2 to 64 characters";
+        } elseif (empty($_POST['user_email'])) {
+            $this->errors[] = "Email cannot be empty";
+        } elseif (strlen($_POST['user_email']) > 64) {
+            $this->errors[] = "Email cannot be longer than 64 characters";
+        } elseif (!filter_var($_POST['user_email'], FILTER_VALIDATE_EMAIL)) {
+            $this->errors[] = "Your email address is not in a valid email format";
+        } elseif (!empty($_POST['user_name'])
+            && strlen($_POST['user_name']) <= 64
+            && strlen($_POST['user_name']) >= 2
+            && preg_match('/^[a-z\d]{2,64}$/i', $_POST['user_name'])
+            && !empty($_POST['user_email'])
+            && strlen($_POST['user_email']) <= 64
+            && filter_var($_POST['user_email'], FILTER_VALIDATE_EMAIL)
+            && ($_POST['user_password_new'] === $_POST['user_password_repeat'])
+        ) {
+
+            // TODO: the above check is redundant, but from a developer's perspective it makes clear
+            // what exactly we want to reach to go into this if-block
+
+            // creating a database connection
+            $this->db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+
+            // if no connection errors (= working database connection)
+            if (!$this->db_connection->connect_errno) {
+
+                // escapin' this, additionally removing everything that could be (html/javascript-) code
+                $this->user_name = $this->db_connection->real_escape_string(htmlentities($_POST['user_name'], ENT_QUOTES));
+                $this->user_email = $this->db_connection->real_escape_string(htmlentities($_POST['user_email'], ENT_QUOTES));
+
+                $this->user_password = $_POST['user_password_new'];
+
+                // crypt the user's password with the PHP 5.5's password_hash() function, results in a 60 character hash string
+                // the PASSWORD_DEFAULT constant is defined by the PHP 5.5, or if you are using PHP 5.3/5.4, by the password hashing
+                // compatibility library                
+                $this->user_password_hash = password_hash($this->user_password, PASSWORD_DEFAULT);
+				
+				//add more parameters for E-Learnig reporter by Pablo César Sánchez Porta
+				$this->user_id		= $_POST['user_id'];
+				$this->nombre 		= $_POST['nombre'];
+				$this->apellidos 	= $_POST['apellidos'];
+				$this->tipo 		= $_POST['tipo'];
+				$this->plantel 		= $_POST['plantel'];
+				$this->addusers		= $_POST['addusers'];
+				
+				$query_check_user_name = $this->db_connection->query("SELECT user_name FROM users WHERE user_id = '" . $this->user_id . "';");
+				$query_check_user_name2 = $this->db_connection->query("SELECT * FROM users WHERE user_name = '" . $this->user_name . "';");
+				$compara=$query_check_user_name->fetch_array();
+				if($compara[0]!=$this->user_name && $query_check_user_name2==1){
+					$this->errors[] = "El nombre de usauario ya esta siendo utilizado, elije otro";
+				}else{
+					if($this->user_password!='') $add_pass = ", user_password_hash = '" . $this->user_password_hash . "' ";
+					//update data in database
+					$query_update_user = $this->db_connection->query("UPDATE users set user_name = '" . $this->user_name ."'" . $add_pass .", user_email = '" . $this->user_email . "', nombre = '" . $this->nombre . "', apellidos = '" . $this->apellidos . "', tipo = '" . $this->tipo . "', plantel = '" . $this->plantel . "', addusers = '" . $this->addusers . "' where user_id = " . $this->user_id );
+					if($query_update_user){
+						$this->messages[]	= "Los datos del usuario se actualizaron con éxito.";
+						$this->registration_successful = true;
+					}else{
+						$this->errors[]	= "Error al guardar los datos, intentalo de nuevo.";
+					}
+				}
+				
+			} else {
+                $this->errors[] = "No se puede conectar a la base de datos.";
+            }
+		} else {
+            $this->errors[] = "Error desconocido.";
+        }	
+	}
 }
