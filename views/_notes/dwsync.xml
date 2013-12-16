@@ -12,8 +12,8 @@
 <file name=".htaccess" server="ftp.online.univermilenium.edu.mx//reporter/" local="130253236169305162" remote="130259045400000000" Dst="2" />
 <file name="logged_in.php" server="ftp.online.univermilenium.edu.mx//reporter/" local="130253236169315162" remote="130259045400000000" Dst="2" />
 <file name="not_logged_in.php" server="ftp.online.univermilenium.edu.mx//reporter/" local="130253236169315162" remote="130259045400000000" Dst="2" />
-<file name="register.php" server="ftp.online.univermilenium.edu.mx//reporter/" local="130259138119667099" remote="130259102400000000" Dst="2" />
-<file name="users.php" server="ftp.online.univermilenium.edu.mx//reporter/" local="130259127478578463" remote="130259093400000000" Dst="2" />
+<file name="register.php" server="ftp.online.univermilenium.edu.mx//reporter/" local="130271131088020586" remote="130271095200000000" Dst="2" />
+<file name="users.php" server="ftp.online.univermilenium.edu.mx//reporter/" local="130271131918758101" remote="130271095800000000" Dst="2" />
 <file name="register.php" server="ftp.online.univermilenium.edu.mx/moodle_dev/elearning/reporter/" local="130259138119667099" remote="130259101800000000" Dst="2" />
 <file name="users.php" server="ftp.online.univermilenium.edu.mx/moodle_dev/elearning/reporter/" local="130259127478578463" remote="130259091600000000" Dst="2" />
 </dwsync>

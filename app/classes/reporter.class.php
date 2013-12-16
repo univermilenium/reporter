@@ -158,4 +158,16 @@
 		{
 			$this->settings = parse_ini_file($this->settings_file);
 		}
+		
+		public function getAccesos($json = false)
+		{
+			$qry = Querys::accesos();
+			$rows = $this->getRows($qry);
+			if($json)
+			{
+				return json_encode($rows);
+			}
+
+			return $rows;
+		}
 	}

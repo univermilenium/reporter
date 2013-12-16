@@ -143,5 +143,21 @@
 			";
 
 			return $qry;
-		} 	
+		}
+		
+		static public function accesos(){
+			$qry = "
+				SELECT DISTINCT
+				    b.username, b.firstname, b.lastname, b.email, d.name as grupo, (select count(mdl_log.userid) as accesos from mdl_log where mdl_log.action = 'login' AND mdl_log.userid = b.id) as accesos
+				FROM
+				   mdl_user b,
+				   mdl_groups_members c,
+				   mdl_groups d
+				WHERE
+				   c.userid = b.id AND
+				   c.groupid = d.id 
+				 order by d.name				
+			";
+			return $qry;
+		}
   }

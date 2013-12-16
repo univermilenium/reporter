@@ -14,10 +14,10 @@
 
     <!-- CSS
   ================================================== -->
-    <link rel="stylesheet" href="app/stylesheets/base.css">
-    <link rel="stylesheet" href="app/stylesheets/skeleton.css">
-    <link rel="stylesheet" href="app/stylesheets/layout.css">
-    <link rel="stylesheet" href="app/stylesheets/univer.css">
+    <link rel="stylesheet" href="stylesheets/base.css">
+    <link rel="stylesheet" href="stylesheets/skeleton.css">
+    <link rel="stylesheet" href="stylesheets/layout.css">
+    <link rel="stylesheet" href="stylesheets/univer.css">
 
     <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -25,13 +25,13 @@
 
     <!-- Favicons
     ================================================== -->
-    <link rel="shortcut icon" href="app/images/favicon.ico">
-    <link rel="apple-touch-icon" href="app/images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="app/images/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="app/images/apple-touch-icon-114x114.png">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
 
-    <script type='text/javascript' src="app/js/jquery.min.js"></script>
-    <script type='text/javascript' src='app/js/knockout-min.js'></script> 
+    <script type='text/javascript' src="js/jquery.min.js"></script>
+    <script type='text/javascript' src='js/knockout-min.js'></script> 
 
     <style type="text/css">
         .grid
